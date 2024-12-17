@@ -1,0 +1,9 @@
+{
+  "name": "@tidbcloud/examples",
+  "version": "0.1.0",
+  "private": true,
+  "devDependencies": {
+    "@biomejs/biome": "catalog:"
+  },
+  "packageManager": "pnpm@9.12.0"
+}
