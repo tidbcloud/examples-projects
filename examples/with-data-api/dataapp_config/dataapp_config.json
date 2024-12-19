@@ -1,0 +1,5 @@
+{
+  "app_id": "${APP_ID}",
+  "app_name": "data-service-example",
+  "app_type": "dataapi"
+}
