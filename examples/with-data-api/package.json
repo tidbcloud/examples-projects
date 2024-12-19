@@ -1,0 +1,26 @@
+{
+  "name": "@tidbcloud/examples-with-data-service",
+  "version": "0.1.0",
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "devDependencies": {
+    "@types/node": "catalog:",
+    "@types/react": "catalog:",
+    "@types/react-dom": "catalog:",
+    "postcss": "catalog:",
+    "tailwindcss": "catalog:"
+  },
+  "dependencies": {
+    "chart.js": "^4.4.7",
+    "next": "catalog:",
+    "react": "catalog:",
+    "react-chartjs-2": "^5.2.0",
+    "react-dom": "catalog:",
+    "swr": "^2.2.5",
+    "with-digest-fetch": "^0.7.0"
+  }
+}
