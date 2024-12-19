@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.prism-code {
+  @apply p-4 rounded;
+  font-size: 12px;
+}

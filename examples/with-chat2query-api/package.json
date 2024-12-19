@@ -1,0 +1,37 @@
+{
+  "name": "@tidbcloud/examples-with-chat2query-api",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@tanstack/react-query": "catalog:",
+    "@tidbcloud/serverless": "catalog:",
+    "@trpc/client": "catalog:",
+    "@trpc/next": "catalog:",
+    "@trpc/react-query": "catalog:",
+    "@trpc/server": "catalog:",
+    "clsx": "catalog:",
+    "framer-motion": "11.15.0",
+    "next": "catalog:",
+    "prism-react-renderer": "catalog:",
+    "react": "catalog:",
+    "react-dom": "catalog:",
+    "sql-formatter": "15.4.6",
+    "zod": "catalog:"
+  },
+  "devDependencies": {
+    "@tailwindcss/typography": "catalog:",
+    "@types/node": "catalog:",
+    "@types/react": "catalog:",
+    "@types/react-dom": "catalog:",
+    "daisyui": "catalog:",
+    "postcss": "catalog:",
+    "tailwindcss": "catalog:",
+    "typescript": "catalog:"
+  }
+}
