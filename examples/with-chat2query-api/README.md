@@ -2,10 +2,6 @@
 
 This example demonstrates how to build an AI-powered SQL chat interface using TiDB Cloud's Chat2Query API. With less than 100 lines of core code, you can create a ChatGPT-like experience for querying your database.
 
-Try out the [online demo](https://chat2query-example.vercel.app/) to see it in action.
-
-![Demo Screenshot](https://raw.githubusercontent.com/tidbcloud/chat2query-example/main/screenshot.png)
-
 ## Getting Started
 
 ### Prerequisites
