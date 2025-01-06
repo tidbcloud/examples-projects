@@ -77,8 +77,8 @@ export interface AskResult extends BaseResult {
   assumptions: Assumption[];
   clarified_task: string;
   data: {
-    columns: { col: string }[];
-    rows: Primitive[][];
+    columns: { col: string }[] | null;
+    rows: Primitive[][] | null;
   };
   description: string;
   sql: string;
