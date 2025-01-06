@@ -143,7 +143,10 @@ function App() {
     },
   );
   const ask = trpc.ask.useMutation();
-  const ref = useRef<HTMLDivElement>(null);
+  // scroll to bottom when new message is added
+  const scrollerRef = useRef<HTMLDivElement>(null);
+  // clear input after submit
+  const inputRef = useRef<HTMLTextAreaElement>(null);
   const appendMessage = (message: Partial<Message>) => {
     setMessages((prev) => [...prev, { ...message, createdAt: Date.now() }]);
   };
@@ -164,6 +167,10 @@ function App() {
     const message = formData.get("message") as string;
 
     appendMessage({ fromUser: true, content: message });
+
+    if (inputRef.current) {
+      inputRef.current.value = "";
+    }
 
     await sleep(300);
 
@@ -194,8 +201,8 @@ function App() {
   };
 
   useEffect(() => {
-    if (ref.current) {
-      ref.current.scrollTop = ref.current.scrollHeight;
+    if (scrollerRef.current) {
+      scrollerRef.current.scrollTop = scrollerRef.current.scrollHeight;
     }
   }, [messages]);
 
@@ -256,7 +263,7 @@ function App() {
       <div className="flex flex-col gap-4 flex-1">
         <div
           className="flex-1 w-full max-h-[calc(100vh-200px)] overflow-y-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
-          ref={ref}
+          ref={scrollerRef}
         >
           {messages.map((message, index) =>
             message.fromUser ? (
@@ -278,6 +285,7 @@ function App() {
           <textarea
             className="textarea textarea-bordered w-full resize-none pr-24"
             name="message"
+            ref={inputRef}
             onKeyDown={(e) => {
               if (isLoading || error) return;
 
