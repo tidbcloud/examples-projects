@@ -123,7 +123,11 @@ function TaskResult({ task, sql, columns, rows }: TaskResultProps) {
     <div className="flex flex-col gap-2">
       <div>{task}</div>
       <CodeHighlight language="sql">{formatSql(sql)}</CodeHighlight>
-      <Table columns={columns} rows={rows} />
+      {columns.length > 0 && rows.length > 0 ? (
+        <Table columns={columns} rows={rows} />
+      ) : (
+        <div>No data found with this query</div>
+      )}
     </div>
   );
 }
@@ -183,8 +187,8 @@ function App() {
       taskResult: {
         task: response.result.result.clarified_task,
         sql: response.result.result.sql,
-        columns: response.result.result.data.columns.map((c) => c.col),
-        rows: response.result.result.data.rows,
+        columns: response.result.result.data?.columns?.map((c) => c.col) ?? [],
+        rows: response.result.result.data?.rows ?? [],
       },
     });
   };
@@ -231,7 +235,7 @@ function App() {
         await sleep(300);
         appendMessage({
           fromUser: false,
-          content: `Try asking me anything about the data.`,
+          content: `Feel free to ask me anything about the data.`,
         });
       }
     })();
