@@ -45,6 +45,7 @@ type Message = {
   isLoading?: boolean;
   createdAt: number;
   taskResult?: TaskResultProps;
+  persist?: boolean;
 };
 
 function sleep(ms: number) {
@@ -148,7 +149,10 @@ function App() {
   // clear input after submit
   const inputRef = useRef<HTMLTextAreaElement>(null);
   const appendMessage = (message: Partial<Message>) => {
-    setMessages((prev) => [...prev, { ...message, createdAt: Date.now() }]);
+    setMessages((prev) => [
+      ...prev,
+      { ...message, createdAt: Date.now(), persist: message?.persist ?? true },
+    ]);
   };
   const editLastMessage = (message: Partial<Message>) => {
     setMessages((prev) => {
@@ -176,28 +180,36 @@ function App() {
 
     appendMessage({ fromUser: false, content: "Thinking..." });
 
-    const response = await ask.mutateAsync({ question: message });
-    if (response.code !== 200) {
-      editLastMessage({ fromUser: false, content: response.msg });
-      return;
-    }
-    if (response.result.result.status === "failed") {
+    try {
+      const response = await ask.mutateAsync({ question: message });
+      if (response.code !== 200) {
+        editLastMessage({ fromUser: false, content: response.msg });
+        return;
+      }
+      if (response.result.result.status === "failed") {
+        editLastMessage({
+          fromUser: false,
+          content: response.result.reason || response.result.result.sql_error,
+        });
+        return;
+      }
+
       editLastMessage({
         fromUser: false,
-        content: response.result.reason || response.result.result.sql_error,
+        taskResult: {
+          task: response.result.result.clarified_task,
+          sql: response.result.result.sql,
+          columns:
+            response.result.result.data?.columns?.map((c) => c.col) ?? [],
+          rows: response.result.result.data?.rows ?? [],
+        },
       });
-      return;
+    } catch (error: any) {
+      editLastMessage({
+        fromUser: false,
+        content: `Failed to generate the SQL query, please try again later. ${error.message}`,
+      });
     }
-
-    editLastMessage({
-      fromUser: false,
-      taskResult: {
-        task: response.result.result.clarified_task,
-        sql: response.result.result.sql,
-        columns: response.result.result.data?.columns?.map((c) => c.col) ?? [],
-        rows: response.result.result.data?.rows ?? [],
-      },
-    });
   };
 
   useEffect(() => {
@@ -208,18 +220,9 @@ function App() {
 
   // load messages from local storage
   useEffect(() => {
-    const messages = JSON.parse(
-      localStorage.getItem(localStorageKey) || "[]",
-    ) as Message[];
-
-    if (messages.length > 0) {
-      messages.sort((a, b) => a.createdAt - b.createdAt);
-      setMessages(messages);
-      return;
-    }
-
-    appendMessage({ isLoading: true });
     (async () => {
+      appendMessage({ isLoading: true, persist: false });
+
       const res = await refetch();
       if (res.error) {
         editLastMessage({
@@ -238,20 +241,33 @@ function App() {
         appendMessage({
           fromUser: false,
           content: res.data.result.result.description.system,
+          persist: false,
         });
         await sleep(300);
         appendMessage({
           fromUser: false,
           content: `Feel free to ask me anything about the data.`,
+          persist: false,
         });
+      }
+
+      const messages = JSON.parse(
+        localStorage.getItem(localStorageKey) || "[]",
+      ) as Message[];
+
+      if (messages.length > 0) {
+        messages.sort((a, b) => a.createdAt - b.createdAt);
+        setMessages((prev) => [...prev, ...messages]);
+        return;
       }
     })();
   }, []);
 
   // save messages to local storage
   useEffect(() => {
-    if (messages.length === 0) return;
-    localStorage.setItem(localStorageKey, JSON.stringify(messages));
+    const messagesToSave = messages.filter((m) => m.persist);
+    if (messagesToSave.length === 0) return;
+    localStorage.setItem(localStorageKey, JSON.stringify(messagesToSave));
   }, [messages]);
 
   return (
