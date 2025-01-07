@@ -100,7 +100,7 @@ On the authentication property of the data app property page, click the Create A
 ![image](https://github.com/tidbcloud/data-service-example/assets/1892986/e85abaa8-2427-44c3-bcce-1cf5b621d9d6)
 
 > Note:
-> 1. API Key has two roles: `ReadAndWrite` and `ReadOnly`, which represent the database operation permission for that key. It is recommended to create a `ReadAndWrite` type APIKey directly. 
+> 1. API Key has two roles: `ReadAndWrite` and `ReadOnly`, which represent the database operation permission for that key. It is recommended to create a `ReadAndWrite` type APIKey directly.
 > 2. After clicking API Key creation, DataService will **ONLY** return the corresponding key content at this time. Please click copy everything to store the corresponding key value locally. We will use this key for related access operations later.
 
 #### Choose an endpoint and test if it is working correctly.
@@ -129,7 +129,8 @@ TIDBCLOUD_DATA_SERVICE_HOST=https://us-east-1.data.tidbcloud.com/api/v1beta/app/
 Run commands below to start a local dev server. If things go well, you could see the demo as the screenshot.
 
 ```bash
-npm i && npm run dev
+pnpm install
+pnpm run dev
 ```
 
 Deploy our demo app to [Vercel](https://vercel.com/) only take 3 minutes! Visit Vercel, register an account if you don't have one. Import the Git repository we forked & updated.

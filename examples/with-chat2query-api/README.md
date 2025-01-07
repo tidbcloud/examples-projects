@@ -27,8 +27,8 @@ CHAT2QUERY_DATABASE=your_database_name
 ### Development
 
 ```bash
-npm install
-npm run dev
+pnpm install
+pnpm run dev
 ```
 
 Visit `http://localhost:3000` to see your app.
