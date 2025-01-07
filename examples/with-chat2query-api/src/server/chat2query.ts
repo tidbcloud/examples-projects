@@ -18,7 +18,7 @@ export interface JobResult<T> extends BaseResult {
     job_id: string;
     status: "init" | "running" | "failed" | "done";
     reason: string;
-    result: T;
+    result: T | null;
   };
 }
 

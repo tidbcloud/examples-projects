@@ -186,10 +186,14 @@ function App() {
         editLastMessage({ fromUser: false, content: response.msg });
         return;
       }
-      if (response.result.result.status === "failed") {
+      if (
+        response.result.status === "failed" ||
+        !response.result.result ||
+        response.result.result?.status === "failed"
+      ) {
         editLastMessage({
           fromUser: false,
-          content: response.result.reason || response.result.result.sql_error,
+          content: response.result.reason || response.result.result?.sql_error,
         });
         return;
       }
@@ -228,6 +232,14 @@ function App() {
         editLastMessage({
           isLoading: false,
           content: ` Failed to connect to the database, ${res.error.message}`,
+        });
+        return;
+      }
+
+      if (res.data?.result.status === "failed" || !res.data?.result.result) {
+        editLastMessage({
+          isLoading: false,
+          content: `Failed to connect to the database, ${res.data?.result.reason}`,
         });
         return;
       }
