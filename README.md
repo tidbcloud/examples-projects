@@ -1,40 +1,65 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# TiDB Cloud Examples
+
+A collection of examples demonstrating how to connect and use TiDB Cloud.
 
 ## Getting Started
 
-First, run the development server:
+These examples are built with modern web development tools and practices. Before you begin, make sure you have the following prepared:
+
+### Prerequisites
+
+- Node.js 20.x or later
+- pnpm 9.x or later (we use pnpm workspaces to manage multiple examples)
+- A [TiDB Cloud](https://tidbcloud.com) account (free tier available, no credit card required)
+
+### Installation
+
+1. Clone the repository:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/tidbcloud/examples-projects.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Install dependencies:
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+```bash
+pnpm install
+```
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+3. Each example has its own environment variables that need to be configured. Check the README in each example directory for specific setup instructions.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+## Examples
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Next.js Todo App
 
-## Learn More
+A full-stack todo application built with Next.js, demonstrating how to connect and use TiDB Cloud Serverless with Drizzle ORM.
+[Learn more](./examples/with-nextjs-todo/README.md)
 
-To learn more about Next.js, take a look at the following resources:
+### Data Service Dashboard
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
+A dashboard application showcasing TiDB Cloud Data Service for building APIs without backend code.
+[Learn more](./examples/with-data-api/README.md)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Chat2Query Interface
 
-## Deploy on Vercel
+An AI-powered SQL chat interface using TiDB Cloud's Chat2Query API to generate and execute queries.
+[Learn more](./examples/with-chat2query-api/README.md)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Vector Search RAG
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+A RAG (Retrieval Augmented Generation) application demonstrating TiDB's vector search capabilities.
+[Learn more](./examples/with-vector-search/README.md)
+
+## Features Demonstrated
+
+- TiDB Cloud Serverless database connection
+- Data Service for serverless APIs
+- Chat2Query for natural language SQL queries
+- Vector search for semantic search and RAG applications
+- TypeScript & Next.js integration
+- tRPC for type-safe APIs
+- Drizzle ORM for database operations
+
+## License
+
+This project is licensed under the MIT License.
