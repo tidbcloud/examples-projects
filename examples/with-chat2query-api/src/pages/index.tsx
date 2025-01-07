@@ -277,8 +277,6 @@ function App() {
     localStorage.setItem(localStorageKey, JSON.stringify(messagesToSave));
   }, [messages]);
 
-  console.log(messages);
-
   return (
     <main className="max-w-[800px] mx-auto h-screen p-8 flex flex-col relative">
       <h1 className="text-2xl font-bold text-center mb-4">
