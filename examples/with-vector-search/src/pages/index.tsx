@@ -246,7 +246,7 @@ function Ch1({ onNext }: { onNext: () => void }) {
                 here
               </a>
               .
-              {origin.startsWith("http://localhost") && (
+              {!origin.startsWith("http://localhost") && (
                 <span>
                   {" "}
                   By the way, if you are visiting this page from a non-localhost
@@ -349,7 +349,10 @@ function Ch2({ onNext, onPrev }: { onNext: () => void; onPrev: () => void }) {
   );
 }
 
-const sqlCode = `CREATE TABLE documents (
+const sqlCode = `
+USE <your_database_name>;
+
+CREATE TABLE documents (
     id INT AUTO_INCREMENT PRIMARY KEY,
     url TEXT NOT NULL,
     content TEXT NOT NULL,
@@ -378,7 +381,8 @@ function Ch3({ onNext, onPrev }: { onNext: () => void; onPrev: () => void }) {
           First, let's create a table in the TiDB Cloud cluster to store our
           document segments and their embeddings, open the SQL editor in the
           TiDB Cloud console, copy the following SQL and paste it into the
-          editor to run:
+          editor to run, make sure to replace {"<your_database_name>"} with your
+          own database name:
         </p>
 
         <CodeHighlight language="sql">{sqlCode}</CodeHighlight>
