@@ -87,7 +87,7 @@ function CodeHighlight({
 
 function Table({ columns, rows }: { columns: string[]; rows: Primitive[][] }) {
   return (
-    <div className="overflow-x-auto">
+    <div className="overflow-x-auto max-h-[400px]">
       <table className="table table-xs">
         <thead>
           <tr>
@@ -257,9 +257,16 @@ function App() {
 
       if (messages.length > 0) {
         messages.sort((a, b) => a.createdAt - b.createdAt);
-        setMessages((prev) => [...prev, ...messages]);
-        return;
+
+        setMessages((prev) => {
+          const combined = [...prev, ...messages];
+          return Array.from(
+            new Map(combined.map((m) => [m.createdAt, m])).values(),
+          );
+        });
       }
+
+      inputRef.current?.focus();
     })();
   }, []);
 
@@ -269,6 +276,8 @@ function App() {
     if (messagesToSave.length === 0) return;
     localStorage.setItem(localStorageKey, JSON.stringify(messagesToSave));
   }, [messages]);
+
+  console.log(messages);
 
   return (
     <main className="max-w-[800px] mx-auto h-screen p-8 flex flex-col relative">
@@ -302,6 +311,7 @@ function App() {
             className="textarea textarea-bordered w-full resize-none pr-24"
             name="message"
             ref={inputRef}
+            placeholder="Please input your question here..."
             onKeyDown={(e) => {
               if (isLoading || error) return;
 
