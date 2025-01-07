@@ -38,9 +38,11 @@ export const todo = mysqlTable("todo", {
 });
 ```
 
-To create the tables, run the SQL migration in the SQL Editor of your TiDB Cloud web console:
+To create the tables, run the following SQL in the SQL Editor of your TiDB Cloud web console, make sure to replace <your_database_name> with your own database name:
 
 ```sql
+use <your_database_name>;
+
 CREATE TABLE `todo` (
   `id` int AUTO_INCREMENT NOT NULL,
   `title` text NOT NULL,
