@@ -5,9 +5,6 @@ A real-time dashboard analyzing car sales trends using Next.js, Chart.js, and Ti
 To begin with, you can refer to the Data Service documentation and try out the online demo to gain familiarity with the platform.
 
 - [Access the Data Service Documentation for more information](https://docs.pingcap.com/tidbcloud/data-service-overview)
-- [Check out the online demo of the dashboard app](https://data-service-example.vercel.app/)
-
-![preview](https://github.com/tidbcloud/data-service-example/assets/1892986/58975e4f-ac55-4f1e-a169-c3947a32dac7)
 
 ## Features
 
@@ -16,13 +13,13 @@ To begin with, you can refer to the Data Service documentation and try out the o
 
 ## Prepare
 
-1. Install the dependencies
+### Install the dependencies
 
 ```bash
 pnpm install
 ```
 
-2. Create a TiDB Cloud Serverless cluster and import data
+### Create a TiDB Cloud Serverless cluster and import data
 
 Head over to [TiDB Cloud](https://tidbcloud.com/), sign in with your Google or GitHub account, and create a new Serverless cluster - **it's completely free and no credit card is required**.
 
