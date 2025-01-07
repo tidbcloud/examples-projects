@@ -44,10 +44,6 @@ interface ResponseData<T> {
 type OrderByYearData = ResponseData<{ order_count: string; year: string }>;
 // prettier-ignore
 type AvgPriceByYearData = ResponseData<{ price: string; year: string }>;
-// prettier-ignore
-type TopPriceByYearData = ResponseData<{ price: string; name: string }>;
-// prettier-ignore
-type OrderByBrandYearData = ResponseData<{ name: string; order_count: string }>;
 
 function RankList({
   data,
@@ -96,14 +92,6 @@ export default function Home() {
     `/api/gateway/avg_price_per_year`,
     fetcher as Fetcher<AvgPriceByYearData, string>,
   );
-  const { data: orderByBrandYearData } = useSWR(
-    `/api/gateway/order_by_brand_year?year=${year}`,
-    fetcher as Fetcher<OrderByBrandYearData, string>,
-  );
-  const { data: topPriceByYearData } = useSWR(
-    `/api/gateway/price_by_brand_year?year=${year}`,
-    fetcher as Fetcher<TopPriceByYearData, string>,
-  );
 
   const options = {
     responsive: true,
@@ -143,70 +131,6 @@ export default function Home() {
       </header>
       <div className="shadow-xl bg-white rounded p-4 w-full ">
         <Line options={options} data={{ labels, datasets }} />
-      </div>
-
-      <div className="flex gap-4 flex-col md:flex-row md:min-h-[392px]">
-        <div className="shadow-xl bg-white rounded p-4 flex-1 flex-shrink-0 md:w-[49%]">
-          <header className="flex justify-between">
-            <div className="font-bold">Top Brand</div>
-
-            <div className="text-xs flex items-center">
-              <span className="font-bold mr-1">Year:</span>
-              <select value={year} onChange={(e) => setYear(e.target.value)}>
-                {labels?.map((i) => (
-                  <option key={i} value={i}>
-                    {i}
-                  </option>
-                ))}
-              </select>
-            </div>
-          </header>
-
-          <div className="flex justify-between mt-3 mb-2 text-xs font-bold text-gray-500">
-            <div>Name</div>
-            <div>Order</div>
-          </div>
-          <RankList
-            bg="bg-blue-50"
-            data={
-              orderByBrandYearData?.data.rows.slice(0, 10).map((i) => ({
-                name: i.name,
-                value: Number(i.order_count),
-              })) ?? []
-            }
-          />
-        </div>
-
-        <div className="shadow-xl bg-white rounded p-4 flex-1 flex-shrink-0 md:w-[49%]">
-          <header className="flex justify-between">
-            <div className="font-bold">Top Price</div>
-
-            <div className="text-xs flex items-center">
-              <span className="font-bold mr-1">Year:</span>
-              <select value={year} onChange={(e) => setYear(e.target.value)}>
-                {labels?.map((i) => (
-                  <option key={i} value={i}>
-                    {i}
-                  </option>
-                ))}
-              </select>
-            </div>
-          </header>
-
-          <div className="flex justify-between mt-3 mb-2 text-xs font-bold text-gray-500">
-            <div>Name</div>
-            <div>Price</div>
-          </div>
-          <RankList
-            bg="bg-orange-50"
-            data={
-              topPriceByYearData?.data.rows.slice(0, 10).map((i) => ({
-                name: i.name,
-                value: Number(i.price),
-              })) ?? []
-            }
-          />
-        </div>
       </div>
 
       <footer className="flex items-center justify-center mt-4">
