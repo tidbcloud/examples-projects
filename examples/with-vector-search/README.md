@@ -55,7 +55,7 @@ CREATE TABLE documents (
     id INT AUTO_INCREMENT PRIMARY KEY,
     url TEXT NOT NULL,
     content TEXT NOT NULL,
-    embedding VECTOR(768) NOT NULL,
+    embedding VECTOR(768) NOT NULL
 );
 ```
 
