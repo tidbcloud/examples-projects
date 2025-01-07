@@ -188,7 +188,7 @@ function Ch1({ onNext }: { onNext: () => void }) {
             <span>
               Optionally, you can setup{" "}
               <a
-                href="https://ollama.com"
+                href="https://ollama.com/download"
                 target="_blank"
                 rel="noreferrer"
                 className="underline"
@@ -206,19 +206,20 @@ function Ch1({ onNext }: { onNext: () => void }) {
                   <code>brew install ollama</code>
                 </pre>
                 <pre data-prefix="$">
-                  <code>export OLLAMA_HOST={origin} && ollama serve</code>
+                  <code>ollama serve</code>
                 </pre>
               </div>
             </span>
 
             <span>
-              Now you have ollama running on your local machine on port 11434!
-              Then open another terminal window and run{" "}
+              Now you have ollama running on your local machine! Then open
+              another terminal window and run{" "}
               <code className="bg-neutral text-white rounded-md p-1">
                 ollama run llama3.2
               </code>{" "}
-              to download the llama3.2 model. This is a 3B model that takes
-              around 2GB of space to download.
+              to download and start the llama3.2 model. This is a 3B model that
+              takes around 2GB of space to download. After downloading, you can
+              click the button below to say hello to ollama.
             </span>
 
             <br />
@@ -233,6 +234,32 @@ function Ch1({ onNext }: { onNext: () => void }) {
             </button>
             {isPending && <div>Loading...</div>}
             <div>{result}</div>
+
+            <p>
+              You can also pick other models from ollama's model list{" "}
+              <a
+                href="https://ollama.com/search"
+                target="_blank"
+                rel="noreferrer"
+                className="underline"
+              >
+                here
+              </a>
+              .
+              {origin.startsWith("http://localhost") && (
+                <span>
+                  {" "}
+                  By the way, if you are visiting this page from a non-localhost
+                  origin, you will also need to set the OLLAMA_ORIGINS
+                  environment variable to tell ollama to accept requests from
+                  this origin by running{" "}
+                  <code className="bg-neutral text-white rounded-md p-1">
+                    export OLLAMA_ORIGINS="{origin}" && ollama serve
+                  </code>
+                  in your terminal.
+                </span>
+              )}
+            </p>
           </li>
         </ol>
 
