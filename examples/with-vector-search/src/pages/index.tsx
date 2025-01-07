@@ -1022,16 +1022,16 @@ export default function Home() {
             type="checkbox"
             onChange={(e) => {
               if (e.target.checked) {
-                document.documentElement.setAttribute("data-theme", "dracula");
-              } else {
                 document.documentElement.setAttribute("data-theme", "emerald");
+              } else {
+                document.documentElement.setAttribute("data-theme", "dracula");
               }
             }}
           />
 
           {/* sun icon */}
           <svg
-            className="swap-on h-4 w-4 fill-current"
+            className="swap-off h-4 w-4 fill-current"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
           >
@@ -1040,7 +1040,7 @@ export default function Home() {
 
           {/* moon icon */}
           <svg
-            className="swap-off h-4 w-4 fill-current"
+            className="swap-on h-4 w-4 fill-current"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
           >
