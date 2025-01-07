@@ -1,4 +1,4 @@
-# TiDB Vector Search Example
+# TiDB Vector Search Example - How to build your own RAG app
 
 An interactive demo showcasing TiDB's vector search capabilities. This demo allows you to explore and experiment with semantic search functionality powered by TiDB's vector similarity search feature.
 
@@ -45,19 +45,6 @@ pnpm dev
 ```
 
 Visit `http://localhost:3000` to see the demo locally.
-
-## Database Schema
-
-The demo uses the following schema for storing documents and their vector embeddings:
-
-```sql
-CREATE TABLE documents (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    url TEXT NOT NULL,
-    content TEXT NOT NULL,
-    embedding VECTOR(768) NOT NULL
-);
-```
 
 ## Learn More
 
