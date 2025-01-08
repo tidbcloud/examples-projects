@@ -1,7 +1,6 @@
 import clsx from "clsx";
 import { Filter, useFilterState } from "./helper";
 import { trpc } from "@/utils/trpc";
-import type { TodoItem } from "@/server/db/schema";
 
 export function Footer() {
   const [filter, setFilter] = useFilterState();
@@ -13,8 +12,7 @@ export function Footer() {
   const utils = trpc.useUtils();
   const clearCompleted = trpc.clearCompleted.useMutation();
 
-  const activeTodos =
-    data?.todos.filter((todo: TodoItem) => !todo.completed) ?? [];
+  const activeTodos = data?.todos.filter((todo) => !todo.completed) ?? [];
 
   const handleClearCompleted = async () => {
     await clearCompleted.mutateAsync();

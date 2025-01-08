@@ -2,7 +2,6 @@ import { Item } from "./Item";
 import clsx from "clsx";
 import { useFilterState } from "./helper";
 import { trpc } from "@/utils/trpc";
-import { TodoItem } from "@/server/db/schema";
 
 export function Main() {
   const [filter] = useFilterState();
@@ -21,14 +20,14 @@ export function Main() {
 
   return (
     <main className="main" data-testid="main">
-      {data?.todos.length > 0 ? (
+      {data?.todos && data.todos.length > 0 ? (
         <div className="toggle-all-container">
           <input
             className="toggle-all"
             type="checkbox"
             id="toggle-all"
             data-testid="toggle-all"
-            checked={data.todos.every((todo: TodoItem) => todo.completed)}
+            checked={data.todos.every((todo) => todo.completed)}
             onChange={handleToggleAll}
             disabled={toggleAll.isPending || isFetching}
           />
@@ -38,7 +37,7 @@ export function Main() {
         </div>
       ) : null}
       <ul className={clsx("todo-list")} data-testid="todo-list">
-        {data?.todos.map((todo: TodoItem, index: number) => (
+        {data?.todos.map((todo) => (
           <Item
             title={todo.title}
             completed={todo.completed}
