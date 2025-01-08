@@ -448,7 +448,7 @@ function Ch3({ onNext, onPrev }: { onNext: () => void; onPrev: () => void }) {
               type="button"
               onClick={() => testSegmenter.mutateAsync()}
             >
-              Test Segmenter
+              Click here to test Segmenter
             </button>
 
             <div className="flex items-center gap-2">
@@ -482,7 +482,7 @@ function Ch3({ onNext, onPrev }: { onNext: () => void; onPrev: () => void }) {
           the content of a webpage, then use the <b>Segmenter API</b> to split
           the content into multiple segments, and finally use the{" "}
           <b>Embedding API</b> to turn the segments into embeddings and save it
-          in the database. Click the button to index following urls.
+          in the database. Click the button below to index following urls.
         </p>
 
         <div>
@@ -508,7 +508,7 @@ function Ch3({ onNext, onPrev }: { onNext: () => void; onPrev: () => void }) {
                 });
               }}
             >
-              Index URLs
+              Click here to index all webpages
             </button>
 
             <div className="flex items-center gap-2">
