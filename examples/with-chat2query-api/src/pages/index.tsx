@@ -216,6 +216,11 @@ function App() {
     }
   };
 
+  const clearMessages = () => {
+    localStorage.removeItem(localStorageKey);
+    window.location.reload();
+  };
+
   useEffect(() => {
     if (scrollerRef.current) {
       scrollerRef.current.scrollTop = scrollerRef.current.scrollHeight;
@@ -286,7 +291,11 @@ function App() {
   useEffect(() => {
     const messagesToSave = messages.filter((m) => m.persist);
     if (messagesToSave.length === 0) return;
-    localStorage.setItem(localStorageKey, JSON.stringify(messagesToSave));
+    try {
+      localStorage.setItem(localStorageKey, JSON.stringify(messagesToSave));
+    } catch (error) {
+      console.error("Failed to save messages to local storage", error);
+    }
   }, [messages]);
 
   return (
@@ -340,6 +349,10 @@ function App() {
               Send
             </button>
           </div>
+
+          <a className="link text-xs" onClick={clearMessages}>
+            Clear all messages
+          </a>
         </form>
       </div>
     </main>
