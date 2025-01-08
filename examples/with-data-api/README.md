@@ -6,6 +6,8 @@ To begin with, you can refer to the Data Service documentation and try out the o
 
 - [Access the Data Service Documentation for more information](https://docs.pingcap.com/tidbcloud/data-service-overview)
 
+Visit [https://tidbcloud-example-with-data-service.vercel.app/](https://tidbcloud-example-with-data-service.vercel.app/) to experience the demo.
+
 ## Features
 
 - 📈 Sales volume trends over years

@@ -2,6 +2,8 @@
 
 A minimalist todo application built with Next.js and TiDB Cloud, demonstrating how to build a full-stack application with serverless database capabilities using Drizzle ORM.
 
+Visit [https://tidbcloud-example-with-nextjs-todo.vercel.app/](https://tidbcloud-example-with-nextjs-todo.vercel.app/) to experience the demo.
+
 ## Prerequisites
 
 1. Sign up for a [TiDB Cloud](https://tidbcloud.com/) account
