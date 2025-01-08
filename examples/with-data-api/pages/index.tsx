@@ -83,15 +83,17 @@ function RankList({
 }
 
 export default function Home() {
-  const [year, setYear] = useState("2017");
-  const { data: orderByYearData } = useSWR(
+  const { data: orderByYearData, isLoading: orderByYearDataLoading } = useSWR(
     `/api/gateway/total_order_per_year`,
     fetcher as Fetcher<OrderByYearData, string>,
   );
-  const { data: avgPriceByYearData } = useSWR(
-    `/api/gateway/avg_price_per_year`,
-    fetcher as Fetcher<AvgPriceByYearData, string>,
-  );
+  const { data: avgPriceByYearData, isLoading: avgPriceByYearDataLoading } =
+    useSWR(
+      `/api/gateway/avg_price_per_year`,
+      fetcher as Fetcher<AvgPriceByYearData, string>,
+    );
+
+  const isLoading = orderByYearDataLoading || avgPriceByYearDataLoading;
 
   const options = {
     responsive: true,
@@ -129,6 +131,13 @@ export default function Home() {
       <header className="text-center font-bold text-xl">
         Insights into Automotive Sales
       </header>
+
+      {isLoading && (
+        <div className="text-center text-sm text-gray-500">
+          Fetching data...
+        </div>
+      )}
+
       <div className="shadow-xl bg-white rounded p-4 w-full ">
         <Line options={options} data={{ labels, datasets }} />
       </div>
