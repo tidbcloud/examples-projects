@@ -2,6 +2,8 @@
 
 An interactive demo showcasing TiDB's vector search capabilities. This demo allows you to explore and experiment with semantic search functionality powered by TiDB's vector similarity search feature.
 
+Visit [https://tidbcloud-example-with-vector-search.vercel.app/](https://tidbcloud-example-with-vector-search.vercel.app/) to experience the demo.
+
 ## Features
 
 - Interactive vector search demonstration
