@@ -38,10 +38,12 @@ export const todo = mysqlTable("todo", {
 });
 ```
 
-To create the tables, run the following SQL in the SQL Editor of your TiDB Cloud web console, make sure to replace <your_database_name> with your own database name:
+To create the table, run the following SQL in the SQL Editor of your TiDB Cloud web console, you can replace `todo_app` with your own database name if you want to use a different database name:
 
 ```sql
-use <your_database_name>;
+CREATE DATABASE IF NOT EXISTS `todo_app`;
+
+use `todo_app`;
 
 CREATE TABLE `todo` (
   `id` int AUTO_INCREMENT NOT NULL,
