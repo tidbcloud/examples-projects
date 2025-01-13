@@ -9,29 +9,29 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@tanstack/react-query": "catalog:",
-    "@tidbcloud/serverless": "catalog:",
-    "@trpc/client": "catalog:",
-    "@trpc/next": "catalog:",
-    "@trpc/react-query": "catalog:",
-    "@trpc/server": "catalog:",
-    "clsx": "catalog:",
+    "@tanstack/react-query": "5.59.16",
+    "@tidbcloud/serverless": "0.2.0",
+    "@trpc/client": "11.0.0-rc.660",
+    "@trpc/next": "11.0.0-rc.660",
+    "@trpc/react-query": "11.0.0-rc.660",
+    "@trpc/server": "11.0.0-rc.660",
+    "clsx": "2.1.1",
     "framer-motion": "11.15.0",
-    "next": "catalog:",
-    "prism-react-renderer": "catalog:",
-    "react": "catalog:",
-    "react-dom": "catalog:",
+    "next": "15.1.0",
+    "prism-react-renderer": "2.4.0",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
     "sql-formatter": "15.4.9",
-    "zod": "catalog:"
+    "zod": "3.23.8"
   },
   "devDependencies": {
-    "@tailwindcss/typography": "catalog:",
-    "@types/node": "catalog:",
-    "@types/react": "catalog:",
-    "@types/react-dom": "catalog:",
-    "daisyui": "catalog:",
-    "postcss": "catalog:",
-    "tailwindcss": "catalog:",
-    "typescript": "catalog:"
+    "@tailwindcss/typography": "0.5.15",
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "daisyui": "4.12.14",
+    "postcss": "8.4.49",
+    "tailwindcss": "3.4.1",
+    "typescript": "5.7.2"
   }
 }
