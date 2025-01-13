@@ -138,8 +138,8 @@ importers:
         specifier: 'catalog:'
         version: 18.3.1(react@18.3.1)
       sql-formatter:
-        specifier: 15.4.6
-        version: 15.4.6
+        specifier: 15.4.9
+        version: 15.4.9
       zod:
         specifier: 'catalog:'
         version: 3.23.8
@@ -2172,8 +2172,8 @@ packages:
   space-separated-tokens@2.0.2:
     resolution: {integrity: sha512-PEGlAwrG8yXGXRjW32fGbg66JAlOAwbObuqVoJpv/mRgoWDQfgH1wDPvtzWyUSNAXBGSk8h755YDbbcEy3SH2Q==}
 
-  sql-formatter@15.4.6:
-    resolution: {integrity: sha512-aH6kwvJpylljHqXe+zpie0Q5snL3uerDLLhjPEBjDCVK1NMRFq4nMJbuPJWYp08LaaaJJgBhShAdAfspcBYY0Q==}
+  sql-formatter@15.4.9:
+    resolution: {integrity: sha512-5vmt2HlCAVozxsBZuXWkAki/KGawaK+b5GG5x+BtXOFVpN/8cqppblFUxHl4jxdA0cvo14lABhM+KBnrUapOlw==}
     hasBin: true
 
   stack-generator@2.0.10:
@@ -3995,7 +3995,7 @@ snapshots:
 
   space-separated-tokens@2.0.2: {}
 
-  sql-formatter@15.4.6:
+  sql-formatter@15.4.9:
     dependencies:
       argparse: 2.0.1
       get-stdin: 8.0.0
