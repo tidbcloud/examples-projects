@@ -140,7 +140,3 @@ For more details, see the [Chat2Query API documentation](https://docs.pingcap.co
 - [TiDB Cloud Documentation](https://docs.pingcap.com/tidbcloud)
 - [Next.js Documentation](https://nextjs.org/docs)
 - [tRPC Documentation](https://trpc.io/docs)
-
-## License
-
-This project is licensed under the MIT License.

@@ -103,7 +103,3 @@ The easiest way to deploy is using [Vercel](https://vercel.com):
 - [Drizzle ORM Documentation](https://orm.drizzle.team)
 - [Next.js Documentation](https://nextjs.org/docs)
 - [Vercel Deployment](https://vercel.com/docs)
-
-## License
-
-This project is licensed under the MIT License.
