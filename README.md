@@ -28,6 +28,24 @@ pnpm install
 
 3. Each example has its own environment variables that need to be configured. Check the README in each example directory for specific setup instructions.
 
+4. If you only want to clone a single example, you can use the following command:
+
+```bash
+npx degit tidbcloud/examples-projects/examples/with-chat2query-api my-example
+```
+
+Then cd into that example directory and run `pnpm install`.
+
+You can also replace **with-chat2query-api** with the name of the example you want to clone, for example:
+
+```bash
+npx degit tidbcloud/examples-projects/examples/with-data-api my-example
+npx degit tidbcloud/examples-projects/examples/with-nextjs-todo my-example
+npx degit tidbcloud/examples-projects/examples/with-vector-search my-example
+```
+
+Each project requires a `.env` file to be created in the root of the example directory. You can refer to the README in each example directory for more details.
+
 ## Examples
 
 ### Next.js Todo App
