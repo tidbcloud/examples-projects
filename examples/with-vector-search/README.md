@@ -52,7 +52,3 @@ Visit `http://localhost:3000` to see the demo locally.
 
 - [TiDB Vector Search Documentation](https://docs.pingcap.com/tidbcloud/vector-search-overview)
 - [Integration with TiDB Vector Search](https://docs.pingcap.com/tidbcloud/vector-search-integration-overview)
-
-## License
-
-This project is licensed under the MIT License.

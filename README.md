@@ -59,7 +59,3 @@ A RAG (Retrieval Augmented Generation) application demonstrating TiDB's vector s
 - TypeScript & Next.js integration
 - tRPC for type-safe APIs
 - Drizzle ORM for database operations
-
-## License
-
-This project is licensed under the MIT License.
