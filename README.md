@@ -77,3 +77,16 @@ A RAG (Retrieval Augmented Generation) application demonstrating TiDB's vector s
 - TypeScript & Next.js integration
 - tRPC for type-safe APIs
 - Drizzle ORM for database operations
+
+## Need Help?
+
+Run into issues or have questions? We're here to help!
+
+- Open an issue in our [GitHub repository](https://github.com/tidbcloud/examples-projects/issues/new)
+- Include details about:
+  - Which example you're using
+  - What you're trying to do
+  - Any error messages you're seeing
+  - Your environment (Node.js version, OS, etc.)
+
+Our team actively monitors issues and will help you get up and running.
