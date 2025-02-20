@@ -35,6 +35,9 @@ importers:
       '@trpc/server':
         specifier: 11.0.0-rc.660
         version: 11.0.0-rc.660(typescript@5.7.2)
+      '@vercel/analytics':
+        specifier: 1.5.0
+        version: 1.5.0(next@15.1.4(@opentelemetry/api@1.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)
       clsx:
         specifier: 2.1.1
         version: 2.1.1
@@ -87,6 +90,9 @@ importers:
 
   examples/with-data-api:
     dependencies:
+      '@vercel/analytics':
+        specifier: 1.5.0
+        version: 1.5.0(next@15.1.4(@opentelemetry/api@1.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)
       chart.js:
         specifier: ^4.4.7
         version: 4.4.7
@@ -145,6 +151,9 @@ importers:
       '@trpc/server':
         specifier: 11.0.0-rc.660
         version: 11.0.0-rc.660(typescript@5.7.2)
+      '@vercel/analytics':
+        specifier: 1.5.0
+        version: 1.5.0(next@15.1.4(@opentelemetry/api@1.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)
       clsx:
         specifier: 2.1.1
         version: 2.1.1
@@ -215,6 +224,9 @@ importers:
       '@trpc/server':
         specifier: 11.0.0-rc.660
         version: 11.0.0-rc.660(typescript@5.7.2)
+      '@vercel/analytics':
+        specifier: 1.5.0
+        version: 1.5.0(next@15.1.4(@opentelemetry/api@1.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)
       ai:
         specifier: 4.0.18
         version: 4.0.18(react@18.3.1)(zod@3.23.8)
@@ -1120,6 +1132,32 @@ packages:
 
   '@ungap/structured-clone@1.2.1':
     resolution: {integrity: sha512-fEzPV3hSkSMltkw152tJKNARhOupqbH96MZWyRjNaYZOMIzbrTeQDG+MTc6Mr2pgzFQzFxAfmhGDNP5QK++2ZA==}
+
+  '@vercel/analytics@1.5.0':
+    resolution: {integrity: sha512-MYsBzfPki4gthY5HnYN7jgInhAZ7Ac1cYDoRWFomwGHWEX7odTEzbtg9kf/QSo7XEsEAqlQugA6gJ2WS2DEa3g==}
+    peerDependencies:
+      '@remix-run/react': ^2
+      '@sveltejs/kit': ^1 || ^2
+      next: '>= 13'
+      react: ^18 || ^19 || ^19.0.0-rc
+      svelte: '>= 4'
+      vue: ^3
+      vue-router: ^4
+    peerDependenciesMeta:
+      '@remix-run/react':
+        optional: true
+      '@sveltejs/kit':
+        optional: true
+      next:
+        optional: true
+      react:
+        optional: true
+      svelte:
+        optional: true
+      vue:
+        optional: true
+      vue-router:
+        optional: true
 
   '@xobotyi/scrollbar-width@1.9.5':
     resolution: {integrity: sha512-N8tkAACJx2ww8vFMneJmaAgmjAG1tnVBZJRLRcx061tmsLRZHSEZSLuGWnwPtunsSLvSqXQ2wfp7Mgqg1I+2dQ==}
@@ -2835,6 +2873,11 @@ snapshots:
   '@types/unist@3.0.3': {}
 
   '@ungap/structured-clone@1.2.1': {}
+
+  '@vercel/analytics@1.5.0(next@15.1.4(@opentelemetry/api@1.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)':
+    optionalDependencies:
+      next: 15.1.4(@opentelemetry/api@1.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      react: 18.3.1
 
   '@xobotyi/scrollbar-width@1.9.5': {}
 
