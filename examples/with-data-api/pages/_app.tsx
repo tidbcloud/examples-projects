@@ -1,5 +1,7 @@
 import { SWRConfig, SWRConfiguration } from "swr";
 import type { AppProps } from "next/app";
+import { Analytics } from "@vercel/analytics/next";
+
 import "~/styles/global.css";
 
 export default function App({ Component, pageProps }: AppProps) {
@@ -10,6 +12,7 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <SWRConfig value={options}>
       <Component {...pageProps} />
+      <Analytics />
     </SWRConfig>
   );
 }
