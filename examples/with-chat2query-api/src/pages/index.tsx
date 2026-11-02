@@ -3,7 +3,7 @@ import { format } from "sql-formatter";
 import { HyperText } from "@/components/HyperText";
 import { trpc } from "@/utils/trpc";
 import { useEffect, useRef, useState } from "react";
-import { Primitive } from "zod";
+import type { QueryValue } from "@/server/chat2query";
 
 function AiMessage({
   children,
@@ -85,7 +85,7 @@ function CodeHighlight({
   );
 }
 
-function Table({ columns, rows }: { columns: string[]; rows: Primitive[][] }) {
+function Table({ columns, rows }: { columns: string[]; rows: QueryValue[][] }) {
   return (
     <div className="overflow-x-auto max-h-[400px]">
       <table className="table table-xs">
@@ -116,7 +116,7 @@ interface TaskResultProps {
   task: string;
   sql: string;
   columns: string[];
-  rows: Primitive[][];
+  rows: QueryValue[][];
 }
 
 function TaskResult({ task, sql, columns, rows }: TaskResultProps) {

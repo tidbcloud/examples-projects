@@ -3,7 +3,7 @@ import { trpc } from "@/utils/trpc";
 import { useEffect, useState } from "react";
 import { useLocalStorage } from "react-use";
 import clsx from "clsx";
-import { ollama } from "ollama-ai-provider";
+import { ollama } from "ollama-ai-provider-v2";
 import { streamText } from "ai";
 import { Highlight, themes } from "prism-react-renderer";
 import Markdown from "react-markdown";
