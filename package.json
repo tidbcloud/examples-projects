@@ -4,10 +4,20 @@
   "private": true,
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
-    "typescript": "5.7.2"
+    "typescript": "5.9.3"
   },
-  "packageManager": "pnpm@9.12.0",
+  "packageManager": "pnpm@9.15.9",
   "engines": {
     "node": ">=20"
+  },
+  "pnpm": {
+    "overrides": {
+      "next>postcss": "8.5.32",
+      "sucrase>glob": "14.0.3",
+      "@esbuild-kit/core-utils>esbuild": "0.25.12",
+      "@ai-sdk/provider-utils>undici": "6.29.1",
+      "@tailwindcss/typography>postcss-selector-parser": "6.1.5",
+      "yaml@<2.8.3": "2.9.1"
+    }
   }
 }

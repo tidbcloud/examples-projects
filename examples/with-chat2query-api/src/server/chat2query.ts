@@ -1,4 +1,4 @@
-import type { Primitive } from "zod";
+export type QueryValue = string | number | bigint | boolean | null | undefined;
 
 interface BaseResult {
   code: number;
@@ -78,7 +78,7 @@ export interface AskResult extends BaseResult {
   clarified_task: string;
   data: {
     columns: { col: string }[] | null;
-    rows: Primitive[][] | null;
+    rows: QueryValue[][] | null;
   };
   description: string;
   sql: string;
