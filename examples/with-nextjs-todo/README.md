@@ -2,7 +2,9 @@
 
 A minimalist todo application built with Next.js and TiDB Cloud, demonstrating how to build a full-stack application with serverless database capabilities using Drizzle ORM.
 
-Visit [https://tidbcloud-example-with-nextjs-todo.vercel.app/](https://tidbcloud-example-with-nextjs-todo.vercel.app/) to experience the demo.
+![Todo application preview](./images/preview.png)
+
+Run this example locally with your own test database. All todos share one table; this example does not include user authentication or per-user data isolation. See the [usage boundaries](../../README.md#local-usage) before exposing it publicly.
 
 ## Prerequisites
 
@@ -11,6 +13,13 @@ Visit [https://tidbcloud-example-with-nextjs-todo.vercel.app/](https://tidbcloud
 3. Get your connection details from the TiDB Cloud console
 
 ## Getting Started
+
+Run the following commands, then complete the database configuration below:
+
+```bash
+git clone https://github.com/tidbcloud/examples-projects.git
+cd examples-projects/examples/with-nextjs-todo
+```
 
 ### 1. Configure Database Connection
 
@@ -61,7 +70,7 @@ CREATE TABLE `todo` (
 
 ```bash
 pnpm install
-pnpm dev
+pnpm dev --hostname 127.0.0.1
 ```
 
 Visit `http://localhost:3000` to see your todo app in action.
@@ -88,18 +97,8 @@ Visit `http://localhost:3000` to see your todo app in action.
 └── .env                    # Environment variables
 ```
 
-## Deployment
-
-The easiest way to deploy is using [Vercel](https://vercel.com):
-
-1. Push your code to GitHub
-2. Import your repository in Vercel
-3. Add your `DATABASE_URL` environment variable in Vercel project settings
-4. Deploy!
-
 ## Learn More
 
 - [TiDB Cloud Documentation](https://docs.pingcap.com/tidbcloud)
 - [Drizzle ORM Documentation](https://orm.drizzle.team)
 - [Next.js Documentation](https://nextjs.org/docs)
-- [Vercel Deployment](https://vercel.com/docs)

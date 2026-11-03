@@ -2,9 +2,18 @@
 
 This example demonstrates how to build an AI-powered SQL chat interface using TiDB Cloud's Chat2Query API. With less than 100 lines of core code, you can create a ChatGPT-like experience for querying your database.
 
-Visit [https://tidbcloud-example-with-chat2query-api.vercel.app/](https://tidbcloud-example-with-chat2query-api.vercel.app/) to experience the demo.
+![Chat2Query interface preview](./images/preview.png)
+
+Preview rendered locally with sample responses. The [archived online capture](./images/live-demo.png) from November 3, 2026, shows a connection error.
+
+Run this example locally with your own test database and Chat2Query API credentials. It does not include user authentication or abuse controls. See the [usage boundaries](../../README.md#local-usage) before exposing it publicly.
 
 ## Getting Started
+
+```bash
+git clone https://github.com/tidbcloud/examples-projects.git
+cd examples-projects/examples/with-chat2query-api
+```
 
 ### Prerequisites
 
@@ -41,6 +50,8 @@ CHAT2QUERY_CLUSTER_ID=your_cluster_id
 CHAT2QUERY_DATABASE=your_database_name
 ```
 
+The server creates a separate Chat2Query client for each request using only these environment variables. Requests cannot override the endpoint, credentials, cluster, or database. Restart the local server after changing `.env`.
+
 ### Running the Project
 
 ```bash
@@ -48,7 +59,7 @@ CHAT2QUERY_DATABASE=your_database_name
 pnpm install
 
 # Start the development server
-pnpm run dev
+pnpm dev --hostname 127.0.0.1
 ```
 
 Once running, visit `http://localhost:3000` to see your app in action. The app will automatically create a data summary for your database, allowing you to start asking questions in natural language right away!

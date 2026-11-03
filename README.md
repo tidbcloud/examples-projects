@@ -2,6 +2,12 @@
 
 A collection of examples demonstrating how to connect and use TiDB Cloud.
 
+## Local Usage
+
+Run the examples locally with your own test database and API credentials. Each example's README includes a screenshot and setup instructions.
+
+These are learning examples without user authentication, per-user data isolation, or abuse controls. Use test data and credentials with limited permissions. Add the appropriate protections before making an example publicly accessible.
+
 ## Getting Started
 
 These examples are built with modern web development tools and practices. Before you begin, make sure you have the following prepared:
@@ -18,6 +24,7 @@ These examples are built with modern web development tools and practices. Before
 
 ```bash
 git clone https://github.com/tidbcloud/examples-projects.git
+cd examples-projects
 ```
 
 2. Install dependencies:
@@ -28,10 +35,18 @@ pnpm install
 
 3. Each example has its own environment variables that need to be configured. Check the README in each example directory for specific setup instructions.
 
+After configuring an example, start it from the repository root:
+
+```bash
+pnpm --dir examples/with-nextjs-todo dev --hostname 127.0.0.1
+```
+
+Replace `with-nextjs-todo` with the example you want to run, then open `http://localhost:3000`. Run one example at a time, or pass `--port 3001` to use another port.
+
 4. If you only want to clone a single example, you can use the following command:
 
 ```bash
-npx degit tidbcloud/examples-projects/examples/with-chat2query-api my-example
+pnpm dlx degit tidbcloud/examples-projects/examples/with-chat2query-api my-example
 ```
 
 Then cd into that example directory and run `pnpm install`.
@@ -39,9 +54,9 @@ Then cd into that example directory and run `pnpm install`.
 You can also replace **with-chat2query-api** with the name of the example you want to clone, for example:
 
 ```bash
-npx degit tidbcloud/examples-projects/examples/with-data-api my-example
-npx degit tidbcloud/examples-projects/examples/with-nextjs-todo my-example
-npx degit tidbcloud/examples-projects/examples/with-vector-search my-example
+pnpm dlx degit tidbcloud/examples-projects/examples/with-data-api my-example
+pnpm dlx degit tidbcloud/examples-projects/examples/with-nextjs-todo my-example
+pnpm dlx degit tidbcloud/examples-projects/examples/with-vector-search my-example
 ```
 
 Each project requires a `.env` file to be created in the root of the example directory. You can refer to the README in each example directory for more details.
