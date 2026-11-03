@@ -2,7 +2,9 @@
 
 An interactive demo showcasing TiDB's vector search capabilities. This demo allows you to explore and experiment with semantic search functionality powered by TiDB's vector similarity search feature.
 
-Visit [https://tidbcloud-example-with-vector-search.vercel.app/](https://tidbcloud-example-with-vector-search.vercel.app/) to experience the demo.
+![Vector search tutorial preview](./images/preview.png)
+
+Run this example locally with your own test database and Jina API key. It does not include user authentication or abuse controls. See the [usage boundaries](../../README.md#local-usage) before exposing it publicly.
 
 ## Features
 
@@ -23,9 +25,7 @@ Visit [https://tidbcloud-example-with-vector-search.vercel.app/](https://tidbclo
    - TiDB finds documents with similar vector representations
    - Results are ranked by similarity score
 
-## Running Locally (Optional)
-
-If you want to run this demo locally:
+## Running Locally
 
 ### Prerequisites
 
@@ -35,18 +35,28 @@ If you want to run this demo locally:
 
 ### Setup
 
-1. Clone this repository
-2. Create a `.env` file:
+1. Clone this repository and enter the example directory:
+
+```bash
+git clone https://github.com/tidbcloud/examples-projects.git
+cd examples-projects/examples/with-vector-search
+```
+
+2. Create a `.env` file in this directory:
 ```env
 JINA_API_KEY=your_jina_api_key
 ```
 3. Install and run:
 ```bash
 pnpm install
-pnpm dev
+pnpm dev --hostname 127.0.0.1
 ```
 
 Visit `http://localhost:3000` to see the demo locally.
+
+4. Enter your test database connection string in the app and follow the tutorial to create the `documents` table, index sample documents, query them, and rerank results. You do not need to put the database connection string in `.env`.
+
+5. For the optional local LLM steps, install [Ollama](https://ollama.com/download), start it with `ollama serve`, and run `ollama run llama3.2` in another terminal. Follow the in-app instructions if Ollama requires an allowed browser origin.
 
 ## Learn More
 

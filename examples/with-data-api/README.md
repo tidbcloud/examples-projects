@@ -2,11 +2,13 @@
 
 A real-time dashboard analyzing car sales trends using Next.js, Chart.js, and TiDB Cloud Data Service.
 
-To begin with, you can refer to the Data Service documentation and try out the online demo to gain familiarity with the platform.
+![Data Service dashboard preview](./images/preview.png)
+
+Preview rendered with API responses derived from the bundled sample CSV. The [archived online capture](./images/live-demo.png) from November 3, 2026, shows an empty chart.
+
+Run this example locally with your own test data and Data Service API credentials. The local gateway uses your configured API key and does not authenticate callers. See the [usage boundaries](../../README.md#local-usage) before exposing it publicly.
 
 - [Access the Data Service Documentation for more information](https://docs.pingcap.com/tidbcloud/data-service-overview)
-
-Visit [https://tidbcloud-example-with-data-service.vercel.app/](https://tidbcloud-example-with-data-service.vercel.app/) to experience the demo.
 
 ## Features
 
@@ -18,6 +20,8 @@ Visit [https://tidbcloud-example-with-data-service.vercel.app/](https://tidbclou
 ### Install the dependencies
 
 ```bash
+git clone https://github.com/tidbcloud/examples-projects.git
+cd examples-projects/examples/with-data-api
 pnpm install
 ```
 
@@ -125,7 +129,7 @@ curl --digest --user ${PUBLIC_KEY}:${PRIVATE_KEY} --request GET '${YOUR_TIDBCLOU
 Once your APIs are tested and working, and you've got your environment variables in the `.env` file, you're ready to roll! Just run:
 
 ```bash
-pnpm run dev
+pnpm dev --hostname 127.0.0.1
 ```
 
 And boom! 🚀 Your dashboard should spring to life with all those beautiful charts. Head over to http://localhost:3000 to see it in action.
